@@ -13,14 +13,6 @@ def page_not_found(e):
 
 @bp.route('/', methods=['GET', 'POST'])
 def index():
-    if request.method == 'POST':
-        original_url = request.form['url']
-        processed_url = preprocess_url(original_url)
-        short_code = generate_short_code()
-        short_url = ShortURL(original_url=processed_url, short_code=short_code)
-        db.session.add(short_url)
-        db.session.commit()
-        return render_template('index.html', short_url=request.host_url + short_code, original_url=original_url)
     return render_template('index.html')
 
 @bp.route('/shorten', methods=['POST'])

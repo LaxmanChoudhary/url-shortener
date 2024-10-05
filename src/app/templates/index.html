@@ -1,81 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URL Shortener</title>
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; }
-        h1 { color: #333; }
-        form { margin-bottom: 20px; }
-        input[type="text"] { width: 300px; padding: 5px; }
-        input[type="submit"] { padding: 5px 10px; }
-        .url-container { display: flex; align-items: center; margin-top: 10px; }
-        .short-url { margin-right: 10px; }
-        .copy-btn { padding: 5px 10px; cursor: pointer; }
-        .copy-success { color: green; margin-left: 10px; display: none; }
-        #processed-url { color: #666; font-size: 0.9em; margin-top: 5px; }
-    </style>
+    <meta charSet="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/static/css/370ef2156b6b912a.css" data-precedence="next" />
+    <link rel="preload" as="script" fetchPriority="low" href="/static/chunks/webpack-8658fdbc42bfbbae.js" />
+    <script src="/static/chunks/fd9d1056-7d9b70e9456442b8.js" async=""></script>
+    <script src="/static/chunks/117-7264d5d534a8c784.js" async=""></script>
+    <script src="/static/chunks/main-app-157cba80175d7bf1.js" async=""></script>
+    <script src="/static/chunks/app/page-89f5cb8c0f93ac2d.js" async=""></script>
+    <title>🔍TinyTrail | Shorten it, share it, track it!.</title>
+    <meta name="description" content="Generate your short url and track it&#x27;s usage for free, no signup, nothing" />
+    <script src="/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script>
 </head>
+
 <body>
-    <h1>URL Shortener</h1>
-    <form id="shorten-form">
-        <input type="text" id="url-input" placeholder="Enter URL to shorten" required>
-        <input type="submit" value="Shorten">
-    </form>
-    <div id="processed-url"></div>
-    <div class="url-container" style="display: none;">
-        <p class="short-url">Your shortened URL: <a href="#" id="shortened-url"></a></p>
-        <button class="copy-btn" onclick="copyToClipboard()">Copy</button>
-        <span class="copy-success" id="copy-success">Copied!</span>
+    <div class="h-screen w-screen grid grid-flow-row grid-rows-3">
+        <div class="min-w-[500px] max-w-[700px] flex flex-col my-28 mx-auto col row-span-2">
+            <h1 class="text-3xl font-semibold mb-4"><span
+                    class="text-lg tracking-wide bg-gray-100 p-2 rounded">🔍TinyTrail</span> <!-- -->URL Shortner</h1>
+            <div class="space-y-1">
+                <form class="space-x-2"><input class="w-[400px] border rounded border-gray-200 p-2" type="text"
+                        placeholder="Enter URL to shorten" required="" value="" /><input
+                        class="border rounded p-2 hover:bg-gray-100 cursor-pointer" type="submit" value="✂️ shorten" />
+                </form>
+            </div>
+        </div>
+        <div class="grid grid-cols-3 flex-grow row-span-1">
+            <div class="bg-gray-50 flex flex-col justify-center p-4">
+                <h2 class="mb-2 text-xl font-semibold text-gray-800">1️⃣ Generate Short URL</h2>
+                <p class="pl-8 tracking-tight text-gray-700">Create a short link instantly from your long URL.</p>
+            </div>
+            <div class="bg-gray-100 flex flex-col justify-center p-4">
+                <h2 class="mb-2 text-xl font-semibold text-gray-800">2️⃣ Share the Short URL</h2>
+                <p class="pl-8 tracking-tight text-gray-700">Copy and share your short link anywhere, effortlessly.</p>
+            </div>
+            <div class="bg-gray-50 flex flex-col justify-center p-4">
+                <h2 class="mb-2 text-xl font-semibold text-gray-800">3️⃣ Track the URL</h2>
+                <p class="pl-8 tracking-tight text-gray-700">Track real-time click stats of your link.</p>
+                <div></div>
+            </div>
+        </div>
     </div>
-
-    <script>
-        function preprocessUrl(url) {
-            if (!/^https?:\/\//i.test(url)) {
-                return 'https://' + url;
-            }
-            return url;
-        }
-
-        document.getElementById('shorten-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            var originalUrl = document.getElementById('url-input').value;
-            var processedUrl = preprocessUrl(originalUrl);
-            document.getElementById('processed-url').textContent = 'Processed URL: ' + processedUrl;
-
-            fetch('/shorten', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({url: processedUrl}),
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('shortened-url').href = data.short_url;
-                document.getElementById('shortened-url').textContent = data.short_url;
-                document.querySelector('.url-container').style.display = 'flex';
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-        });
-
-        function copyToClipboard() {
-            var urlElement = document.getElementById("shortened-url");
-            var url = urlElement.href;
-
-            navigator.clipboard.writeText(url).then(function() {
-                var successMessage = document.getElementById("copy-success");
-                successMessage.style.display = "inline";
-                setTimeout(function() {
-                    successMessage.style.display = "none";
-                }, 2000);
-            }, function(err) {
-                console.error('Could not copy text: ', err);
-            });
-        }
-    </script>
+    <script src="/static/chunks/webpack-8658fdbc42bfbbae.js" async=""></script>
+    <script>(self.__next_f = self.__next_f || []).push([0]); self.__next_f.push([2, null])</script>
+    <script>self.__next_f.push([1, "1:HL[\"/static/css/370ef2156b6b912a.css\",\"style\"]\n"])</script>
+    <script>self.__next_f.push([1, "2:I[2846,[],\"\"]\n4:I[9107,[],\"ClientPageRoot\"]\n5:I[6117,[\"931\",\"static/chunks/app/page-89f5cb8c0f93ac2d.js\"],\"default\",1]\n6:I[4707,[],\"\"]\n7:I[6423,[],\"\"]\n9:I[1060,[],\"\"]\na:[]\n0:[\"$\",\"$L2\",null,{\"buildId\":\"ZtQi0juwaPpr9d_MAZbfD\",\"assetPrefix\":\"\",\"urlParts\":[\"\",\"\"],\"initialTree\":[\"\",{\"children\":[\"__PAGE__\",{}]},\"$undefined\",\"$undefined\",true],\"initialSeedData\":[\"\",{\"children\":[\"__PAGE__\",{},[[\"$L3\",[\"$\",\"$L4\",null,{\"props\":{\"params\":{},\"searchParams\":{}},\"Component\":\"$5\"}],null],null],null]},[[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/static/css/370ef2156b6b912a.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[\"$\",\"body\",null,{\"children\":[\"$\",\"$L6\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L7\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":\"404\"}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],\"notFoundStyl"])</script>
+    <script>self.__next_f.push([1, "es\":[]}]}]}]],null],null],\"couldBeIntercepted\":false,\"initialHead\":[null,\"$L8\"],\"globalErrorComponent\":\"$9\",\"missingSlots\":\"$Wa\"}]\n"])</script>
+    <script>self.__next_f.push([1, "8:[[\"$\",\"meta\",\"0\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"meta\",\"1\",{\"charSet\":\"utf-8\"}],[\"$\",\"title\",\"2\",{\"children\":\"🔍TinyTrail | Shorten it, share it, track it!.\"}],[\"$\",\"meta\",\"3\",{\"name\":\"description\",\"content\":\"Generate your short url and track it's usage for free, no signup, nothing\"}]]\n3:null\n"])</script>
 </body>
+
 </html>
