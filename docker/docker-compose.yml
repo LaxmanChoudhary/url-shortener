@@ -1,0 +1,18 @@
+services:
+  latex-to-pdf:
+    container_name: backend
+    image: laxman6811/latex-to-pdf:latest
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      DATABASE_URL: "postgresql://postgres.dlkmllgjnugadfulpsbk:cbA7lWddCxl51cjH@aws-0-us-west-1.pooler.supabase.com:6543/postgres"
+
+# TODO: research on ports left
+#  rabbitmq:
+#    image: rabbitmq:4-management
+#    ports:
+#      - protocol: tcp
+#        target: 15672
+#      - protocol: tcp
+#        target: 5672

@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual Environment
+venv/
+.env
+
+# Flask
+instance/
+.webassets-cache
+
+# SQLite databases
+*.sqlite
+
+# Docker
+.dockerignore
+
+# Kubernetes
+.kube/
+
+# IDE specific files
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Ignore the entire venv directory
+/venv/

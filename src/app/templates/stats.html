@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Stats for {{ short_url.short_code }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; }
+        h1 { color: #333; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>Statistics for Short URL: {{ short_url.short_code }}</h1>
+    <p>Original URL: <a href="{{ short_url.original_url }}">{{ short_url.original_url }}</a></p>
+    <p>Total Clicks: {{ total_clicks }}</p>
+    <p>Unique Visitors: {{ unique_visitors }}</p>
+
+    <h2>Recent Clicks</h2>
+    <table>
+        <tr>
+            <th>Timestamp</th>
+            <th>IP Address</th>
+            <th>User Agent</th>
+            <th>Referrer</th>
+        </tr>
+        {% for click in recent_clicks %}
+        <tr>
+            <td>{{ click.timestamp }}</td>
+            <td>{{ click.ip_address }}</td>
+            <td>{{ click.user_agent }}</td>
+            <td>{{ click.referrer or 'N/A' }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
